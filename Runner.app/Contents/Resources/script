@@ -1,10 +1,1 @@
-protractor conf.js &
-protractor conf.js &
-protractor conf.js &
-protractor conf.js &
-protractor conf.js &
-protractor conf.js &
-protractor conf.js &
-protractor conf.js &
-protractor conf.js &
-protractor conf.js --params.seat=1 &
+/Users/yinghong_Hsu/git/appium-test/protractor-bridge/runner.sh
