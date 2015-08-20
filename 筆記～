@@ -1,0 +1,17 @@
+survey wireless iphone test
+30pc + 10 diffrent mobile
+istanbul 檢查單元測試覆蓋率
+準備karma
+webdriver透過restful api進行控制， 透過webdriver控制瀏覽器
+----
+用mocha? “有方便的函數可以檢查資料”
+
+autoWebView可以直接進入WebView!!!!
+wd_special_key-->按return等等按鍵
+
+一台appium只能控制一台裝置
+lonic的消除點擊的300ms延遲會造成appium的click指令消失
+
+每種語言用各自的測試框架進行！！
+
+https://github.com/appium/appium/issues/3637 這篇是在討論關於能否同時多台裝置，android可以

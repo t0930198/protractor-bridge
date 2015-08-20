@@ -1,0 +1,196 @@
+
+
+  citiTest
+ > CALL init({"browserName":"","appium-version":"1.3","platformName":"Android","platformVersion":"5.0.1","deviceName":"emulator-5554","app":"/Users/yinghong_Hsu/Desktop/MainActivity-debug.apk"}) 
+ > POST /session {"desiredCapabilities":{"browserName":"","appium-version":"1.3","platformName":"Android","platformVersion":"5.0.1","deviceName":"emulator-5554","app":"/Users/yinghong_Hsu/Desktop/MainActivity-debug.apk"}}
+
+Driving the web on session: 4e4f1b42-c18f-4160-aaa2-a3348d803a8a
+
+ > RESPONSE init({"browserName":"","appium-version":"1.3","platformName":"Android","platformVersion":"5.0.1","deviceName":"emulator-5554","app":"/Users/yinghong_Hsu/Desktop/MainActivity-debug.apk"}) "4e4f1b42-c18f-4160-aaa2-a3348d803a8a",null
+ > CALL setImplicitWaitTimeout(5000) 
+ > POST /session/:sessionID/timeouts/implicit_wait {"ms":5000}
+ > RESPONSE setImplicitWaitTimeout(5000) 
+    1) browser
+ > CALL sleep(6000) 
+ > RESPONSE sleep(6000) 
+ > CALL contexts() 
+ > GET /session/:sessionID/contexts 
+ > RESPONSE contexts() ["NATIVE_APP","WEBVIEW_com.appcomm.apps"]
+[ 'NATIVE_APP', 'WEBVIEW_com.appcomm.apps' ]
+ > CALL context("WEBVIEW_com.appcomm.apps") 
+ > POST /session/:sessionID/context {"name":"WEBVIEW_com.appcomm.apps"}
+ > RESPONSE context("WEBVIEW_com.appcomm.apps") 
+ > CALL sleep(2000) 
+ > RESPONSE sleep(2000) 
+ > CALL execute(null,[],null) 
+ > POST /session/:sessionID/execute {"script":"return (function () {\n        tapClick({\n          target: $('.movie-Info')[2]\n        });\n      }).apply(null, arguments);","args":[]}
+ > RESPONSE execute(null,[],null) null
+    ✓ should select third movie (10696ms)
+ > CALL sleep(1500) 
+ > RESPONSE sleep(1500) 
+ > CALL execute(null,[],null) 
+ > POST /session/:sessionID/execute {"script":"return (function () {\n        tapClick({\n          target: $('[ng-click=\"setDate(showDay)\"]')[2]\n        });\n      }).apply(null, arguments);","args":[]}
+ > RESPONSE execute(null,[],null) null
+ > CALL sleep(1500) 
+ > RESPONSE sleep(1500) 
+ > CALL execute(null,[],null) 
+ > POST /session/:sessionID/execute {"script":"return (function () {\n        tapClick({\n          target: $('[ng-click=\"setTime(session)\"]')[1]\n        });\n      }).apply(null, arguments);","args":[]}
+ > RESPONSE execute(null,[],null) null
+ > CALL sleep(1500) 
+ > RESPONSE sleep(1500) 
+ > CALL execute(null,[],null) 
+ > POST /session/:sessionID/execute {"script":"return (function () {\n        tapClick({\n          target: $('[ng-model=\"cardNumInput.card8Number1\"]')[0]\n        });\n      }).apply(null, arguments);","args":[]}
+ > RESPONSE execute(null,[],null) null
+ > CALL sleep(1500) 
+ > RESPONSE sleep(1500) 
+ > CALL elementByCss("[ng-model=\"cardNumInput.card8Number1\"]") 
+ > POST /session/:sessionID/element {"using":"css selector","value":"[ng-model=\"cardNumInput.card8Number1\"]"}
+ > RESPONSE elementByCss("[ng-model=\"cardNumInput.card8Number1\"]") {"ELEMENT":"0.4371546055190265-1"}
+ > CALL element.clear() 
+ > POST /session/:sessionID/element/0.4371546055190265-1/clear 
+ > RESPONSE element.clear() 
+ > CALL element.sendKeys("4311") 
+ > POST /session/:sessionID/element/0.4371546055190265-1/value {"value":["4311"]}
+ > RESPONSE element.sendKeys("4311") 
+ > CALL element.sleep(1000) 
+ > RESPONSE element.sleep(1000) 
+ > CALL elementByCss("[ng-model=\"cardNumInput.card8Number2\"]") 
+ > POST /session/:sessionID/element {"using":"css selector","value":"[ng-model=\"cardNumInput.card8Number2\"]"}
+ > RESPONSE elementByCss("[ng-model=\"cardNumInput.card8Number2\"]") {"ELEMENT":"0.4371546055190265-2"}
+ > CALL element.clear() 
+ > POST /session/:sessionID/element/0.4371546055190265-2/clear 
+ > RESPONSE element.clear() 
+ > CALL element.sendKeys("7821") 
+ > POST /session/:sessionID/element/0.4371546055190265-2/value {"value":["7821"]}
+ > RESPONSE element.sendKeys("7821") 
+ > CALL element.sleep(1000) 
+ > RESPONSE element.sleep(1000) 
+ > CALL elementByCss("[ng-model=\"cardNumInput.card8Number3\"]") 
+ > POST /session/:sessionID/element {"using":"css selector","value":"[ng-model=\"cardNumInput.card8Number3\"]"}
+ > RESPONSE elementByCss("[ng-model=\"cardNumInput.card8Number3\"]") {"ELEMENT":"0.4371546055190265-3"}
+ > CALL element.clear() 
+ > POST /session/:sessionID/element/0.4371546055190265-3/clear 
+ > RESPONSE element.clear() 
+ > CALL element.sendKeys("2222") 
+ > POST /session/:sessionID/element/0.4371546055190265-3/value {"value":["2222"]}
+ > RESPONSE element.sendKeys("2222") 
+ > CALL element.sleep(1000) 
+ > RESPONSE element.sleep(1000) 
+ > CALL elementByCss("[ng-model=\"cardNumInput.card8Number4\"]") 
+ > POST /session/:sessionID/element {"using":"css selector","value":"[ng-model=\"cardNumInput.card8Number4\"]"}
+ > RESPONSE elementByCss("[ng-model=\"cardNumInput.card8Number4\"]") {"ELEMENT":"0.4371546055190265-4"}
+ > CALL element.clear() 
+ > POST /session/:sessionID/element/0.4371546055190265-4/clear 
+ > RESPONSE element.clear() 
+ > CALL element.sendKeys("2226") 
+ > POST /session/:sessionID/element/0.4371546055190265-4/value {"value":["2226"]}
+ > RESPONSE element.sendKeys("2226") 
+ > CALL execute(null,[],null) 
+ > POST /session/:sessionID/execute {"script":"return (function () {\n        $('[ng-model=\"cardNumInput.card8Number4\"]').empty().blur();\n      }).apply(null, arguments);","args":[]}
+ > RESPONSE execute(null,[],null) null
+ > CALL sleep(1500) 
+ > RESPONSE sleep(1500) 
+ > CALL execute(null,[],null) 
+ > POST /session/:sessionID/execute {"script":"return (function () {\n        tapClick({\n          target: $('[ng-click=\"addRemoveTicket(ticket,1)\"]')[0]\n        });\n      }).apply(null, arguments);","args":[]}
+ > RESPONSE execute(null,[],null) null
+ > CALL sleep(500) 
+ > RESPONSE sleep(500) 
+ > CALL execute(null,[],null) 
+ > POST /session/:sessionID/execute {"script":"return (function () {\n        tapClick({\n          target: $('[ng-click=\"addRemoveTicket(ticket,1)\"]')[0]\n        });\n      }).apply(null, arguments);","args":[]}
+ > RESPONSE execute(null,[],null) null
+ > CALL sleep(2000) 
+ > RESPONSE sleep(2000) 
+ > CALL execute(null,[],null) 
+ > POST /session/:sessionID/execute {"script":"return (function () {\n        tapClick({\n          target: $('[ng-click=\"addRemoveTicket(ticket,1)\"]')[1]\n        });\n      }).apply(null, arguments);","args":[]}
+ > RESPONSE execute(null,[],null) null
+ > CALL sleep(1500) 
+ > RESPONSE sleep(1500) 
+ > CALL execute(null,[],null) 
+ > POST /session/:sessionID/execute {"script":"return (function () {\n        tapClick({\n          target: $('[ng-click=\"selectSeat()\"]')[0]\n        });\n      }).apply(null, arguments);","args":[]}
+ > RESPONSE execute(null,[],null) null
+ > CALL sleep(3000) 
+ > RESPONSE sleep(3000) 
+    ✓ fill Info (20658ms)
+ > CALL sleep(1500) 
+ > RESPONSE sleep(1500) 
+ > CALL elementByCss("input[ng-model=\"input.account\"]") 
+ > POST /session/:sessionID/element {"using":"css selector","value":"input[ng-model=\"input.account\"]"}
+ > RESPONSE elementByCss("input[ng-model=\"input.account\"]") {"ELEMENT":"0.4371546055190265-5"}
+ > CALL element.sendKeys("iLab_tony") 
+ > POST /session/:sessionID/element/0.4371546055190265-5/value {"value":["iLab_tony"]}
+ > RESPONSE element.sendKeys("iLab_tony") 
+ > CALL elementByCss("input[ng-model=\"input.password\"]") 
+ > POST /session/:sessionID/element {"using":"css selector","value":"input[ng-model=\"input.password\"]"}
+ > RESPONSE elementByCss("input[ng-model=\"input.password\"]") {"ELEMENT":"0.4371546055190265-6"}
+ > CALL element.sendKeys("12345678") 
+ > POST /session/:sessionID/element/0.4371546055190265-6/value {"value":["12345678"]}
+ > RESPONSE element.sendKeys("12345678") 
+ > CALL execute(null,[],null) 
+ > POST /session/:sessionID/execute {"script":"return (function () {\n        tapClick({\n          target: $('a[ng-click=\"edit(2)\"]')[0]\n        });\n      }).apply(null, arguments);","args":[]}
+ > RESPONSE execute(null,[],null) null
+ > CALL sleep(1500) 
+ > RESPONSE sleep(1500) 
+    ✓ wrong account (6315ms)
+ > CALL sleep(1500) 
+ > RESPONSE sleep(1500) 
+ > CALL elementByCss("input[ng-model=\"input.account\"]") 
+ > POST /session/:sessionID/element {"using":"css selector","value":"input[ng-model=\"input.account\"]"}
+ > RESPONSE elementByCss("input[ng-model=\"input.account\"]") {"ELEMENT":"0.4371546055190265-5"}
+ > CALL element.clear() 
+ > POST /session/:sessionID/element/0.4371546055190265-5/clear 
+ > RESPONSE element.clear() 
+ > CALL element.sendKeys("st9450602@gmail.com") 
+ > POST /session/:sessionID/element/0.4371546055190265-5/value {"value":["st9450602@gmail.com"]}
+ > RESPONSE element.sendKeys("st9450602@gmail.com") 
+ > CALL elementByCss("input[ng-model=\"input.password\"]") 
+ > POST /session/:sessionID/element {"using":"css selector","value":"input[ng-model=\"input.password\"]"}
+ > RESPONSE elementByCss("input[ng-model=\"input.password\"]") {"ELEMENT":"0.4371546055190265-6"}
+ > CALL element.clear() 
+ > POST /session/:sessionID/element/0.4371546055190265-6/clear 
+ > RESPONSE element.clear() 
+ > CALL element.sendKeys("f26485") 
+ > POST /session/:sessionID/element/0.4371546055190265-6/value {"value":["f26485"]}
+ > RESPONSE element.sendKeys("f26485") 
+ > CALL execute(null,[],null) 
+ > POST /session/:sessionID/execute {"script":"return (function () {\n        tapClick({\n          target: $('a[ng-click=\"edit(2)\"]')[0]\n        });\n      }).apply(null, arguments);","args":[]}
+ > RESPONSE execute(null,[],null) null
+ > CALL sleep(1500) 
+ > RESPONSE sleep(1500) 
+    ✓ correct account (5072ms)
+    - change seat
+ > CALL sleep(1500) 
+ > RESPONSE sleep(1500) 
+ > CALL execute(null,[],null) 
+ > POST /session/:sessionID/execute {"script":"return (function () {\n        tapClick({\n          target: $('.ion-chevron-right.movieInfo-icon')[1]\n        });\n      }).apply(null, arguments);","args":[]}
+ > RESPONSE execute(null,[],null) null
+ > CALL sleep(3000) 
+ > RESPONSE sleep(3000) 
+    ✓ go to pocket (4529ms)
+ > CALL sleep(1500) 
+ > RESPONSE sleep(1500) 
+ > CALL execute(null,[],null) 
+ > POST /session/:sessionID/execute {"script":"return (function () {\n        tapClick({\n          target: $('[ng-click=\"goPay()\"]')[0]\n        });\n      }).apply(null, arguments);","args":[]}
+ > RESPONSE execute(null,[],null) null
+ > CALL sleep(2000) 
+ > RESPONSE sleep(2000) 
+    ✓ check transaction (3639ms)
+ > CALL sleep(6000) 
+ > RESPONSE sleep(6000) 
+ > CALL quit() 
+ > DELETE /session/:sessionID 
+
+Ending your web drivage..
+
+ > RESPONSE quit() 
+
+
+  6 passing (1m)
+  1 pending
+  1 failing
+
+  1) citiTest browser:
+     ReferenceError: browser is not defined
+      at Context.<anonymous> (citibank.js:40:5)
+
+
+

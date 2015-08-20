@@ -1,0 +1,33 @@
+//需求：同時讓劇本在十個瀏覽器以及三台手機上執行
+
+-->webdriver
+	webdriver-manager start(如果報錯則先執行 webdriver-manager update)
+	-->用protractor指令執行protractor以及appium連結
+	protractor conf.js
+
+-->protractor注意事項
+	需開啟webdriver才能執行
+	要先將網頁以localhost方式開啟在local端，再由spec中指定browser的url
+
+-->appium注意事項
+	確保android手機adb連線狀況 使用adb devices
+	必須指定各個port
+	---appium port (-p)
+	---bootstrap port (-bp)
+	---chrome driver port (-cp)!!!(重要，否則在連線過程中會衝突而崩潰)
+	(若port被佔掉 就指定別的rrrr～～)
+
+裝置與appium會根據spec中的ip-->udid對應表做連接
+
+-->adb注意事項
+	adb devices 列出裝置們(沒有的話，去手機設定開)
+	若要用無線的話
+		adb tcpip 5555
+		adb connect (裝置的lan ip)
+----------------------------------
+操作流程
+1.將網頁以localhost方式開啟
+2.webdriver-manager start
+3.appium -p xxxx -bp xxxx -cp xxxx * 裝置數量
+4.adb devices確定裝置皆有連接
+5.protractor conf.js
