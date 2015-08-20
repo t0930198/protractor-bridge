@@ -19,8 +19,8 @@ describe("citiTest_", function() {
   var seat;
   before(function() {
     seat = seats[browser.params.seat];
-    var width = 600;
-    var height = 900;
+    var width = 400;
+    var height = 650;
     browser.driver.manage().window().setSize(width, height);
     browser.get('http://127.0.0.1:5000');
     browsers[0] = browser;
@@ -79,12 +79,8 @@ describe("citiTest_", function() {
   });
   it('2-1 選擇影城', function() {
     _.each(browsers, function(browser) {
-      browser.actions().dragAndDrop(
-        browser.element(by.css('[on-slide-changed="setCinema($index)"]')), {
-          x: -100,
-          y: 0
-        }
-      ).perform();
+
+      browser.element.all(by.css('[ng-click="setCinema(cinema)"]')).get(2).click();
       browser.sleep(500);
     });
   });
@@ -97,7 +93,13 @@ describe("citiTest_", function() {
 
     });
   });
-  it('2-3-1 填卡號 無優惠', function() {
+  it('滑', function() {
+    _.each(browsers, function(browser) {
+      browser.sleep(500);
+      browser.executeScript('$(".movieInfo-bg.scroll-content.ionic-scroll.has-header.has-tabs").trigger(\'goDown\',[250])');
+    });
+  })
+  xit('2-3-1 填卡號 無優惠', function() {
     _.each(browsers, function(browser) {
       browser.sleep(400);
       browser.element.all(by.css('[ng-model="cardNumInput.card8Number1"]')).get(0).clear().sendKeys('4311');
@@ -112,7 +114,7 @@ describe("citiTest_", function() {
       browser.sleep(1000);
     });
   });
-  it('2-3 看票價', function() {
+  xit('2-3 看票價', function() {
     _.each(browsers, function(browser) {
       browser.sleep(200);
       browser.element.all(by.css('[ng-click="addRemoveTicket(ticket,1)"]')).get(0).click();
@@ -121,7 +123,7 @@ describe("citiTest_", function() {
       browser.sleep(2000);
     });
   });
-  it('2-3-2 填卡號 一般優惠', function() {
+  xit('2-3-2 填卡號 一般優惠', function() {
     _.each(browsers, function(browser) {
       browser.sleep(400);
       browser.element.all(by.css('[ng-model="cardNumInput.card8Number1"]')).get(0).clear().sendKeys('4311');
@@ -136,7 +138,7 @@ describe("citiTest_", function() {
       browser.sleep(1000);
     });
   });
-  it('2-3 看票價', function() {
+  xit('2-3 看票價', function() {
     _.each(browsers, function(browser) {
       browser.sleep(200);
       browser.element.all(by.css('[ng-click="addRemoveTicket(ticket,1)"]')).get(0).click();
@@ -276,16 +278,16 @@ describe("citiTest_", function() {
       browser.element.all(by.css('[ng-model="cardInf.expiredMonth"]')).sendKeys('08');
       browser.sleep(1000);
       browser.element.all(by.css('[ng-model="cardInf.expiredYear"]')).sendKeys('28');
-      browser.sleep(1000);  
+      browser.sleep(1000);
       browser.element.all(by.css('[ng-model="cardInf.cvv"]')).sendKeys('aaa');
-      browser.sleep(1000);  
+      browser.sleep(1000);
     });
   });
   it('go to pocket', function() {
     _.each(browsers, function(browser) {
       browser.element.all(by.css('[ng-click="goPay()"]')).get(0).click();
       browser.sleep(2000);
-      
+
     });
   });
 
