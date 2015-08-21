@@ -402,7 +402,7 @@ describe("citiTest", function() {
             target: $('[ng-click="selectSeat()"]')[1]
           });
         }, [], null)
-        .sleep(3000)
+        .sleep(1000)
       timeouts.push(result);
     });
     return q.allSettled(timeouts).done(function(result) {});
@@ -530,7 +530,9 @@ describe("citiTest", function() {
     _.each(drivers, function(driver) {
       var result = driver
         .sleep(1000)
-        .elementByCss('[ng-model="cardInf.expiredDate"]').sendKeys('1203')
+        .elementByCss('[ng-model="cardInf.expiredYear"]').sendKeys('08')
+        .sleep(500)
+        .elementByCss('[ng-model="cardInf.expiredMonth"]').sendKeys('28')
         .sleep(500)
         .elementByCss('[ng-model="cardInf.cvv"]').sendKeys('123')
         .sleep(500);
