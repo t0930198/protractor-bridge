@@ -523,12 +523,16 @@ describe("citiTest", function() {
         .sleep(1000)
       timeouts.push(result);
     });
-    return q.all(timeouts);
+    return q.allSettled(timeouts);
   });
   it('5-1 到期日以及末三碼', function() {
     var timeouts = [];
     _.each(drivers, function(driver) {
       var result = driver
+        .execute(function() {
+          $('[delegate-handle="MainScroll"]').trigger('goDown', [300]);
+        }, null)
+        .sleep(1000)
         .sleep(1000)
         .elementByCss('[ng-model="cardInf.expiredYear"]').sendKeys('08')
         .sleep(500)
