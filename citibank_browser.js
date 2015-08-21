@@ -43,7 +43,7 @@ describe("citiTest_", function() {
     seat = seats[browser.params.seat];
     member = members[browser.params.account];
     password = passwords[browser.params.password];
-    var width = 250;
+    var width = 180;
     var height = 400;
     browser.driver.manage().window().setSize(width, height);
     browser.get('http://127.0.0.1:5000');
@@ -71,7 +71,7 @@ describe("citiTest_", function() {
 
   it("1 選電影", function() {
     _.each(browsers, function(browser) {
-      browser.element.all(by.css('.movie-Info')).get(2).click();
+      browser.element.all(by.css('.movie-Info')).get(1).click();
 
     });
   });
