@@ -80,12 +80,17 @@ describe("citiTest", function() {
     _.each(drivers, function(driver) {
       var result = driver
         .sleep(2000)
+        // .execute(function() {
+        //   $('[delegate-handle="CinemaSlideBox"]').trigger('cinemaChangeRight');
+        // }, null)
+        // .sleep(1000)
+        // .execute(function() {
+        //   $('[delegate-handle="CinemaSlideBox"]').trigger('cinemaChangeRight');
+        // }, null)
         .execute(function() {
-          $('[delegate-handle="CinemaSlideBox"]').trigger('cinemaChangeRight');
-        }, null)
-        .sleep(1000)
-        .execute(function() {
-          $('[delegate-handle="CinemaSlideBox"]').trigger('cinemaChangeRight');
+          tapClick({
+            target: $('[ng-click="setCinema(cinema)"]')[0]
+          });
         }, null)
         .sleep(1000);
       timeouts.push(result);
@@ -118,14 +123,14 @@ describe("citiTest", function() {
       var result = driver
         .sleep(1000)
         .execute(function() {
-          $('.movieInfo-bg').trigger('goDown', [200]);
+          $('.movieInfo-bg').trigger('goDown', [500]);
         }, null)
         .sleep(1000)
       timeouts.push(result);
     });
     return q.all(timeouts);
   });
-  it("2-3-1 填卡號 無優惠", function() {
+  xit("2-3-1 填卡號 無優惠", function() {
     var timeouts = [];
     _.each(drivers, function(driver) {
       var result = driver
@@ -151,7 +156,7 @@ describe("citiTest", function() {
     });
     return q.all(timeouts);
   });
-  it('~ 滑', function() {
+  xit('~ 滑', function() {
     var timeouts = [];
     _.each(drivers, function(driver) {
       var result = driver
@@ -186,7 +191,7 @@ describe("citiTest", function() {
     });
     return q.all(timeouts);
   });
-  it("2-3-2 填卡號 一般優惠", function() {
+  xit("2-3-2 填卡號 一般優惠", function() {
     var timeouts = [];
     _.each(drivers, function(driver) {
       var result = driver
@@ -212,7 +217,7 @@ describe("citiTest", function() {
     });
     return q.all(timeouts);
   });
-  it('~ 滑', function() {
+  xit('~ 滑', function() {
     var timeouts = [];
     _.each(drivers, function(driver) {
       var result = driver
@@ -343,7 +348,7 @@ describe("citiTest", function() {
     });
     return q.all(timeouts);
   });
-  it("3-1 三個座位", function() {
+  xit("3-1 三個座位", function() {
     var timeouts = [];
     _.each(drivers, function(driver) {
       var result = driver

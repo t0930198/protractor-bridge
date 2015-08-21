@@ -37,6 +37,8 @@ var config = {
 		'browserName': 'chrome'
 	},
 	params: {
+		account: "",
+		password: "",
 		seat: 0
 	},
 	baseUrl: 'http://localhost:5000'
