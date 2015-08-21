@@ -19,9 +19,9 @@ describe("citiTest_", function() {
   var seat,member,password;
   var members = ["ichen@ntut.edu.tw","martiankuo@gmail.com", "future801113@gmail.com", "st9450602@gmail.com", "wendy_814111@yahoo.com.tw",
       "yellow456434@hotmail.com", "derek82511@gmail.com", "feather_1201@hotmail.com",
-      "apps.taipeitech@gmail.com"
+      "apps.taipeitech@gmail.com","aa1235561@gmail.com"
     ],
-    passwords = ["dj/4ej03","cgpersia9333", "123456", "f26485", "w547896321", "n3601797", "ilabderek", "ff8097","a1234567890"];
+    passwords = ["dj/4ej03","cgpersia9333", "123456", "f26485", "w547896321", "n3601797", "ilabderek", "ff8097","a1234567890","b123456789"];
   //ichen
   //ch
   //jason
@@ -43,8 +43,8 @@ describe("citiTest_", function() {
     seat = seats[browser.params.seat];
     member = members[browser.params.account];
     password = passwords[browser.params.password];
-    var width = 350;
-    var height = 550;
+    var width = 250;
+    var height = 400;
     browser.driver.manage().window().setSize(width, height);
     browser.get('http://127.0.0.1:5000');
     browsers[0] = browser;
@@ -54,7 +54,7 @@ describe("citiTest_", function() {
       browsers[i] = browser.forkNewDriverInstance(true);
       elements[i] = browsers[i].element;
     }
-    browser.sleep(5000);
+    browser.sleep(15000);
   });
 
   after(function() {

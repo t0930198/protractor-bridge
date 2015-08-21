@@ -30,4 +30,4 @@
 2.webdriver-manager start
 3.appium -p xxxx -bp xxxx -cp xxxx * 裝置數量
 4.adb devices確定裝置皆有連接
-5.protractor conf.js
+
