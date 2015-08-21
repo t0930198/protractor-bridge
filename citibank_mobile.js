@@ -25,7 +25,7 @@ describe("citiTest", function() {
       config.port = ports[i];
       var driver = wd.promiseChainRemote(config);
       drivers.push(driver);
-      member.app = '/Users/yinghong_Hsu/git/appium-test/protractor-bridge/MainActivity-debug.apk';
+      member.app = '/Users/yinghong_Hsu/git/appium-test/protractor-bridge/CitiBank.apk';
       var t = driver.init(member).setImplicitWaitTimeout(3000);
       timeouts.push(t);
     }
@@ -511,6 +511,19 @@ describe("citiTest", function() {
       timeouts.push(result);
     });
     return q.allSettled(timeouts);
+  });
+  it('~ 滑', function() {
+    var timeouts = [];
+    _.each(drivers, function(driver) {
+      var result = driver
+        .sleep(1000)
+        .execute(function() {
+          $('[delegate-handle="MainScroll"]').trigger('goDown', [300]);
+        }, null)
+        .sleep(1000)
+      timeouts.push(result);
+    });
+    return q.all(timeouts);
   });
   it('5-1 到期日以及末三碼', function() {
     var timeouts = [];
