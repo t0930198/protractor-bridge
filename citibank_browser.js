@@ -43,8 +43,8 @@ describe("citiTest_", function() {
     seat = seats[browser.params.seat];
     member = members[browser.params.account];
     password = passwords[browser.params.password];
-    var width = 180;
-    var height = 400;
+    var width = 140;
+    var height = 550;
     browser.driver.manage().window().setSize(width, height);
     browser.get('http://127.0.0.1:5000');
     browsers[0] = browser;
@@ -71,48 +71,43 @@ describe("citiTest_", function() {
 
   it("1 選電影", function() {
     _.each(browsers, function(browser) {
+      browser.sleep(3000);
       browser.element.all(by.css('.movie-Info')).get(1).click();
 
     });
   });
   it('2-A 滑動電影', function() {
     _.each(browsers, function(browser) {
-      // browser.sleep(500);
+      // browser.sleep(2500);
       // browser.actions().dragAndDrop(
       //   browser.element(by.css('[on-slide-changed="setMovie($index)"]')), {
       //     x: -100,
       //     y: 0
       //   }
       // ).perform();
-      browser.sleep(500);
+      browser.sleep(4000);
       browser.actions().dragAndDrop(
         browser.element(by.css('[on-slide-changed="setMovie($index)"]')), {
           x: -100,
           y: 0
         }
       ).perform();
-      browser.sleep(500);
-      browser.actions().dragAndDrop(
-        browser.element(by.css('[on-slide-changed="setMovie($index)"]')), {
-          x: -100,
-          y: 0
-        }
-      ).perform();
-      browser.sleep(500);
+      
+      browser.sleep(1000);
 
     });
   });
   it('2-1 選擇影城', function() {
     _.each(browsers, function(browser) {
 
-      browser.element.all(by.css('[ng-click="setCinema(cinema)"]')).get(2).click();
-      browser.sleep(500);
+      browser.element.all(by.css('[ng-click="setCinema(cinema)"]')).get(1).click();
+      browser.sleep(1000);
     });
   });
   it('2-2 選擇日期時間', function() {
     _.each(browsers, function(browser) {
       browser.sleep(1000);
-      browser.element.all(by.css('[ng-click="setDate(showDay)"]')).get(2).click();
+      browser.element.all(by.css('[ng-click="setDate(showDay)"]')).get(1).click();
       browser.sleep(1000);
       browser.element.all(by.css('[ng-click="setTime(session)"]')).get(1).click();
 
@@ -192,20 +187,16 @@ describe("citiTest_", function() {
   });
   it('2-3-3 填卡號 優惠聯名', function() {
     _.each(browsers, function(browser) {
-      browser.sleep(400);
-      browser.element.all(by.css('[ng-model="cardNumInput.card8Number1"]')).get(0).clear().sendKeys('4563');
-      browser.sleep(400);
-      browser.element.all(by.css('[ng-model="cardNumInput.card8Number2"]')).get(0).clear().sendKeys('1863');
-      browser.sleep(400);
-      browser.element.all(by.css('[ng-model="cardNumInput.card8Number3"]')).get(0).clear().sendKeys('2222');
-      browser.sleep(400);
-      browser.element.all(by.css('[ng-model="cardNumInput.card8Number4"]')).get(0).clear().sendKeys('2228');
-      browser.sleep(400);
-      browser.element.all(by.css('.ticket-title')).get(0).click();
       browser.sleep(1000);
-      browser.executeScript(function() {
-        $('[ng-model="cardNumInput.card8Number4"]').blur();
-      });
+      browser.element.all(by.css('[ng-model="cardNumInput.card8Number1"]')).get(0).clear().sendKeys('4563');
+      browser.sleep(1000);
+      browser.element.all(by.css('[ng-model="cardNumInput.card8Number2"]')).get(0).clear().sendKeys('1863');
+      browser.sleep(1000);
+      browser.element.all(by.css('[ng-model="cardNumInput.card8Number3"]')).get(0).clear().sendKeys('2222');
+      browser.sleep(1000);
+      browser.element.all(by.css('[ng-model="cardNumInput.card8Number4"]')).get(0).clear().sendKeys('2228');
+      browser.sleep(1000);
+
     });
   });
   it('滑', function() {
@@ -243,8 +234,8 @@ describe("citiTest_", function() {
       browser.sleep(300);
       browser.element.all(by.css('input[ng-model="input.password"]')).get(0).sendKeys(password);
       browser.sleep(1000);
-      browser.element.all(by.css('.button.button-full.button-stable')).get(0).click();
-      browser.sleep(4000);
+      browser.element.all(by.css('a[ng-click="login();stopPropagation($event)"]')).get(0).click();
+      browser.sleep(2000);
     });
 
   });
@@ -266,7 +257,7 @@ describe("citiTest_", function() {
   });
   it('滑', function() {
     _.each(browsers, function(browser) {
-      browser.sleep(4000);
+      browser.sleep(2000);
       browser.executeScript(function() {
         $('[delegate-handle="MainScroll"]').trigger('goDown', [400]);
       });
@@ -278,7 +269,16 @@ describe("citiTest_", function() {
     _.each(browsers, function(browser) {
       browser.sleep(2000);
       browser.element.all(by.css('[ng-click="selectSeat()"]')).get(1).click();
-      browser.sleep(1000);
+      browser.sleep(2000);
+
+    });
+  });
+  it('confirm receipt', function() {
+
+    _.each(browsers, function(browser) {
+      browser.sleep(2000);
+      browser.element.all(by.css('[ng-click="confirm()"]')).get(0).click();
+      browser.sleep(2000);
 
     });
   });
@@ -341,11 +341,19 @@ describe("citiTest_", function() {
   });
   it('滑', function() {
     _.each(browsers, function(browser) {
-      browser.sleep(1000);
+      browser.sleep(2000);
       browser.executeScript(function() {
         $('[delegate-handle="MainScroll"]').trigger('goDown', [400]);
       });
-
+	browser.executeScript(function() {
+        $('[delegate-handle="MainScroll"]').trigger('goDown', [400]);
+      });
+	browser.executeScript(function() {
+        $('[delegate-handle="MainScroll"]').trigger('goDown', [400]);
+      });
+	browser.executeScript(function() {
+        $('[delegate-handle="MainScroll"]').trigger('goDown', [400]);
+      });
     });
   });
   it('5-1 到期日以及末三碼', function() {
@@ -363,7 +371,8 @@ describe("citiTest_", function() {
     _.each(browsers, function(browser) {
       browser.element.all(by.css('[ng-click="goPay()"]')).get(0).click();
       browser.sleep(2000);
-
+      browser.element.all(by.css('[ng-click="agree();stopPropagation($event)"]')).get(0).click();
+      browser.sleep(8000);
     });
   });
 

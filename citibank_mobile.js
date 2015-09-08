@@ -25,7 +25,7 @@ describe("citiTest", function() {
       config.port = ports[i];
       var driver = wd.promiseChainRemote(config);
       drivers.push(driver);
-      member.app = '/Users/yinghong_Hsu/git/appium-test/protractor-bridge/CitiBank.apk';
+      member.app = '/Users/mac/protractor-bridge/CitiBank.apk';
       var t = driver.init(member).setImplicitWaitTimeout(3000);
       timeouts.push(t);
     }
@@ -47,16 +47,16 @@ describe("citiTest", function() {
     var timeouts = [];
     _.each(drivers, function(driver) {
       var result = driver
-        .sleep(2000)
+        .sleep(6000)
         .execute(function() {
           tapClick({
             target: $('.movie-Info')[2]
           });
         }, [], null)
-        .sleep(1500);
+        .sleep(2500);
       timeouts.push(result);
     });
-    return q.all(timeouts);
+    return q.allSettled(timeouts);
   });
   it('2-A 滑動電影', function() {
     var timeouts = [];
@@ -67,13 +67,9 @@ describe("citiTest", function() {
           $('[delegate-handle="MovieSlideBox"]').trigger('movieChangeRight');
         }, null)
         .sleep(1000)
-        .execute(function() {
-          $('[delegate-handle="MovieSlideBox"]').trigger('movieChangeRight');
-        }, null)
-        .sleep(1000);
       timeouts.push(result);
     });
-    return q.all(timeouts);
+    return q.allSettled(timeouts);
   });
   it('2-1 選擇影城', function() {
     var timeouts = [];
@@ -89,25 +85,25 @@ describe("citiTest", function() {
         // }, null)
         .execute(function() {
           tapClick({
-            target: $('[ng-click="setCinema(cinema)"]')[0]
+            target: $('[ng-click="setCinema(cinema)"]')[2]
           });
         }, null)
         .sleep(1000);
       timeouts.push(result);
     });
-    return q.all(timeouts);
+    return q.allSettled(timeouts);
   });
   it("2-2 選擇日期時間", function() {
     var timeouts = [];
     _.each(drivers, function(driver) {
       var result = driver
-        .sleep(1000)
+        .sleep(1500)
         .execute(function() {
           tapClick({
-            target: $('[ng-click="setDate(showDay)"]')[2]
+            target: $('[ng-click="setDate(showDay)"]')[1]
           });
         }, [], null)
-        .sleep(1000)
+        .sleep(1500)
         .execute(function() {
           tapClick({
             target: $('[ng-click="setTime(session)"]')[1]
@@ -115,7 +111,7 @@ describe("citiTest", function() {
         }, [], null);
       timeouts.push(result);
     });
-    return q.all(timeouts);
+    return q.allSettled(timeouts);
   });
   it('~ 滑', function() {
     var timeouts = [];
@@ -151,10 +147,10 @@ describe("citiTest", function() {
         .execute(function() {
           $('[ng-model="cardNumInput.card8Number4"]').empty().blur();
         }, [], null)
-        .sleep(1000);
+        .sleep(3000);
       timeouts.push(result);
     });
-    return q.all(timeouts);
+    return q.allSettled(timeouts);
   });
   xit('~ 滑', function() {
     var timeouts = [];
@@ -189,7 +185,7 @@ describe("citiTest", function() {
         .sleep(500)
       timeouts.push(result);
     });
-    return q.all(timeouts);
+    return q.allSettled(timeouts);
   });
   xit("2-3-2 填卡號 一般優惠", function() {
     var timeouts = [];
@@ -215,7 +211,7 @@ describe("citiTest", function() {
         .sleep(1000);
       timeouts.push(result);
     });
-    return q.all(timeouts);
+    return q.allSettled(timeouts);
   });
   xit('~ 滑', function() {
     var timeouts = [];
@@ -250,7 +246,7 @@ describe("citiTest", function() {
         .sleep(500)
       timeouts.push(result);
     });
-    return q.all(timeouts);
+    return q.allSettled(timeouts);
   });
   it("2-3-3 填卡號 優惠聯名", function() {
     var timeouts = [];
@@ -276,7 +272,7 @@ describe("citiTest", function() {
         .sleep(1000);
       timeouts.push(result);
     });
-    return q.all(timeouts);
+    return q.allSettled(timeouts);
   });
   it('~ 滑', function() {
     var timeouts = [];
@@ -289,7 +285,7 @@ describe("citiTest", function() {
         .sleep(1000)
       timeouts.push(result);
     });
-    return q.all(timeouts);
+    return q.allSettled(timeouts);
   });
 
   xit('2-B 票種說明', function() {
@@ -326,7 +322,7 @@ describe("citiTest", function() {
         .sleep(1000);
       timeouts.push(result);
     });
-    return q.all(timeouts);
+    return q.allSettled(timeouts);
   });
   it('')
 
@@ -338,15 +334,16 @@ describe("citiTest", function() {
         .elementByCss('input[ng-model="input.account"]').clear().sendKeys('ichen@ntut.edu.tw')
         .sleep(500)
         .elementByCss('input[ng-model="input.password"]').clear().sendKeys('dj/4ej03')
+        .sleep(1000)
         .execute(function() {
           tapClick({
-            target: $('a[ng-click="edit(2)"]')[0]
+            target: $('a[ng-click="login();stopPropagation($event)"]')[0]
           });
         }, [], null)
-        .sleep(1500);
+        .sleep(2500);
       timeouts.push(result);
     });
-    return q.all(timeouts);
+    return q.allSettled(timeouts);
   });
   xit("3-1 三個座位", function() {
     var timeouts = [];
@@ -390,7 +387,7 @@ describe("citiTest", function() {
         }, [], null)
       timeouts.push(result);
     });
-    return q.all(timeouts);
+    return q.allSettled(timeouts);
   });
   it("3-2 計價付款", function() {
     var timeouts = [];
@@ -402,7 +399,22 @@ describe("citiTest", function() {
             target: $('[ng-click="selectSeat()"]')[1]
           });
         }, [], null)
-        .sleep(1000)
+        .sleep(4000)
+      timeouts.push(result);
+    });
+    return q.allSettled(timeouts).done(function(result) {});
+  });
+  it('確認發票',function(){
+    var timeouts = [];
+    _.each(drivers, function(driver) {
+      var result = driver
+        .sleep(4500)
+        .execute(function() {
+          tapClick({
+            target: $('[ng-click="confirm()"]')[0]
+          });
+        }, [], null)
+        .sleep(2000)
       timeouts.push(result);
     });
     return q.allSettled(timeouts).done(function(result) {});
@@ -411,7 +423,7 @@ describe("citiTest", function() {
     var timeouts = [];
     _.each(drivers, function(driver) {
       var result = driver
-        .sleep(1000)
+        .sleep(2000)
         .execute(function() {
           tapClick({
             target: $('[ng-click="changeCard(4)"]')[0]
@@ -516,11 +528,19 @@ describe("citiTest", function() {
     var timeouts = [];
     _.each(drivers, function(driver) {
       var result = driver
-        .sleep(1000)
+        .sleep(3000)
         .execute(function() {
-          $('[delegate-handle="MainScroll"]').trigger('goDown', [300]);
+          $('.moviePay-bg').trigger('goDown', [300]);
         }, null)
-        .sleep(1000)
+	.sleep(500)
+	.execute(function() {
+          $('.moviePay-bg').trigger('goDown', [300]);
+        }, null)
+	.sleep(500)
+	.execute(function() {
+          $('.moviePay-bg').trigger('goDown', [300]);
+        }, null)
+        .sleep(3000)
       timeouts.push(result);
     });
     return q.allSettled(timeouts);
@@ -530,7 +550,7 @@ describe("citiTest", function() {
     _.each(drivers, function(driver) {
       var result = driver
         .execute(function() {
-          $('[delegate-handle="MainScroll"]').trigger('goDown', [300]);
+          $('.moviePay-bg').trigger('goDown', [300]);
         }, null)
         .sleep(1000)
         .sleep(1000)
@@ -558,6 +578,12 @@ describe("citiTest", function() {
         .execute(function() {
           tapClick({
             target: $('[ng-click="goPay()"]')[0]
+          });
+        }, [], null)
+        .sleep(2000)
+        .execute(function() {
+          tapClick({
+            target: $('[ng-click="agree();stopPropagation($event)"]')[0]
           });
         }, [], null);
       //.should.not.be.eql(undefined);
